@@ -2,11 +2,11 @@
 from langchain_core.prompts import PromptTemplate, PipelinePromptTemplate, load_prompt
 
 #加载yaml格式的prompt模版
-prompt = load_prompt("simple_prompt.yaml",'UTF-8')
+prompt = load_prompt("simple_prompt.yaml", 'UTF-8')
 print(prompt.format(name="小黑",what="恐怖的"))
 
 #加载json格式的prompt模版
-prompt = load_prompt("simple_prompt.json",'UTF-8')
+prompt = load_prompt("simple_prompt.json", 'UTF-8')
 print(prompt.format(name="小红",what="搞笑的"))
 
 
