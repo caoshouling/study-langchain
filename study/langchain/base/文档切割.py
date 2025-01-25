@@ -6,7 +6,7 @@ from langchain.text_splitter import (
 )
 
 #加载要切分的文档
-with open("test.txt", encoding="utf-8") as f:
+with open("data/test.txt", encoding="utf-8") as f:
     zuizhonghuanxiang = f.read()
 
 

@@ -1,15 +1,16 @@
 # pip install sentence-transformers
 # pip install -U langchain-huggingface
 # pip install -U langchain-community
-
+import numpy as np
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.document_transformers import LongContextReorder
 from langchain_community.vectorstores import Chroma
 from  langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI
-#使用huggingface托管的开源LLM来做嵌入，MiniLM-L6-v2是一个较小的LLM
-embedings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
+local_embedding_path = "E:\\workspace\\ai\\llm\\bge-large-zh-v1.5"
+embedings = HuggingFaceEmbeddings(model_name=local_embedding_path)
+print(embedings)
 text = [
     "篮球是一项伟大的运动。",
     "带我飞往月球是我最喜欢的歌曲之一。",
@@ -23,13 +24,17 @@ text = [
     "拉里.伯德是一位标志性的NBA球员。"
 ]
 
-retrieval = Chroma.from_texts(text,embedings).as_retriever(
+# 检索的过程是通过Chroma向量数据库来实现的。
+# Chroma首先将文本数据转换为嵌入向量，然后存储在向量数据库中。
+# 当进行检索时，Chroma会将查询文本也转换为嵌入向量，并在向量数据库中找到与查询向量最相似的向量。
+# 这种相似度计算通常是通过计算向量之间的余弦相似度来实现的。
+retrieval = Chroma.from_texts(text, embedings).as_retriever(
     search_kwargs={"k": 10}
 )
 query = "关于我的喜好都知道什么?"
 print('-------检索出的默认顺序------------')
 #根据相关性返回文本块
-docs = retrieval.get_relevant_documents(query)
+docs = retrieval.invoke(query)
 for doc in docs:
     print(f"- {doc.page_content}")
 
