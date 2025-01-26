@@ -84,7 +84,7 @@ def create_rag_chain(
             print("\n--------检索到的内容---------")
             for i, doc in enumerate(docs, 1):
                 print(f"第{i}个分块：")
-                print(f"{doc.page_content}")
+                print(f"{doc}")
                 print("-" * 50)
         return docs
 

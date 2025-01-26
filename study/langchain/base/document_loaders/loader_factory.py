@@ -4,6 +4,8 @@ from .base_loader import BaseDocumentLoader
 from .markdown_loader import MarkdownLoader
 from .pdf_loader import PDFLoader
 from .text_loader import TextLoader
+from .docx_loader import DocxLoader
+# from .excel_loader import ExcelLoader
 
 class DocumentLoaderFactory:
     """文档加载器工厂类"""
@@ -27,6 +29,13 @@ class DocumentLoaderFactory:
             return MarkdownLoader(chunk_size, chunk_overlap)
         elif file_extension == '.pdf':
             return PDFLoader(chunk_size, chunk_overlap)
+        elif file_extension == '.txt':
+            return TextLoader(chunk_size, chunk_overlap)
+        elif file_extension == '.docx':
+            return DocxLoader(chunk_size, chunk_overlap)
+        elif file_extension in ['.xls', '.xlsx']:
+            # return ExcelLoader(chunk_size, chunk_overlap)
+            return TextLoader(chunk_size, chunk_overlap)
         else:
             # 对于其他类型的文件，使用通用文本加载器
             return TextLoader(chunk_size, chunk_overlap) 
