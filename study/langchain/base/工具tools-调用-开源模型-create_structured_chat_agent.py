@@ -48,9 +48,6 @@ prompt =ChatPromptTemplate.from_template("""
     """)
 
 
-print("---------------------ChatGPT-3.5（gpt-3.5-turbo）--------------------------")
-
-
 # llm = ChatOpenAI(openai_api_base="https://api.deepseek.com/v1",
 #                    model_name='deepseek-chat',
 #                  openai_api_key ="sk-37b28ddd69354f6e8f813de3a0f218f2")
@@ -59,8 +56,8 @@ print("---------------------ChatGPT-3.5（gpt-3.5-turbo）----------------------
 # 初始化语言模型
 llm = ChatOpenAI(
     openai_api_base="https://8f13-154-12-181-41.ngrok-free.app/v1/",
-    model="paultimothymooney/qwen2.5-7b-instruct"
-)
+    model="paultimothymooney/qwen2.5-7b-instruct",
+api_key ="323")
 
 ## 提示词
 system = '''尽可能帮助和准确地回应人类。您可以使用以下工具:

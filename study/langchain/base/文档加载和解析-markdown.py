@@ -1,4 +1,4 @@
-# pip install pypdf
+
 from langchain_community.document_loaders import PyPDFLoader, PyPDFDirectoryLoader, TextLoader
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings

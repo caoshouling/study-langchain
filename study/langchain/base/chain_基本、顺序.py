@@ -1,5 +1,9 @@
 import logging
+from typing import Dict, Any, List
 
+from langchain_core.callbacks import BaseCallbackHandler
+from langchain_core.messages import BaseMessage
+from langchain_core.outputs import LLMResult
 from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 
 from langchain_core.output_parsers import StrOutputParser
@@ -12,16 +16,21 @@ prompt = ChatPromptTemplate.from_template("请根据下面的主题写一篇小�
 
 llm_base_url: str = "http://localhost:1234/v1/"
 llm_model: str = "paultimothymooney/qwen2.5-7b-instruct"
+llm_base_url="https://8f13-154-12-181-41.ngrok-free.app/v1/"
+
 # 初始化语言模型
 llm = ChatOpenAI(
     openai_api_base=llm_base_url,
-    model=llm_model
+    model=llm_model,
+    api_key="fsdf",
 )
+# To enable streaming, we pass in `streaming=True` to the ChatModel constructor
+# Additionally, we pass in a list with our custom handler
 
 chain = prompt|llm| StrOutputParser()
 answer = chain.invoke({"product","苹果"})
 print(answer)
-print('--------------------------顺序链（SequentialChain已过时）-------------------------')
+print('--------------------------顺序链（SequentialChain已过时，所以用LCEL）-------------------------')
 synopsis_prompt = PromptTemplate.from_template(
     """你是一位剧作家。给定一个剧目的标题，你的任务是为这个标题写一个剧情简介。
 
@@ -46,7 +55,7 @@ chain = (
 
 '''
     还可以添加转换
-    
+
     runnable = (
         {"output_text": lambda text: "\n\n".join(text.split("\n\n")[:3])}
         | prompt
