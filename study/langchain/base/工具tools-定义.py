@@ -22,6 +22,7 @@ print(amultiply.name)
 print(amultiply.description)
 print(amultiply.args)
 
+print(f'args_schema = {amultiply.args_schema.model_json_schema()}')
 async def main():
     print(await amultiply.invoke({"a": 2, "b": 3}))
 
@@ -74,7 +75,15 @@ class CalculatorInput(BaseModel):
     a: int = Field(description="first number")
     b: int = Field(description="second number")
 
+'''
+也支持
+class multiply(TypedDict):
+    """Multiply two integers."""
 
+    a: Annotated[int, ..., "First integer"]
+    b: Annotated[int, ..., "Second integer"]
+
+'''
 def multiply(a: int, b: int) -> int:
     """Multiply two numbers."""
     return a * b
@@ -154,3 +163,10 @@ get_weather_tool = StructuredTool.from_function(
 
 result = get_weather_tool.invoke({"city": "foobar"})
 print(result)
+
+
+print('---------------------定义：chain.as_tool --------------------')
+# as_tool = chain.as_tool(
+#     name="Style responder", description="Description of when to use tool."
+# )
+# as_tool.args

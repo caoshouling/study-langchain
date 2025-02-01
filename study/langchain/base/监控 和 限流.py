@@ -1,7 +1,7 @@
 '''
 监控：
   # 配置日志记录
-    # logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG)
     set_debug(True)
     set_verbose(True)
 
