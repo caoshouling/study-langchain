@@ -1,3 +1,4 @@
+import os
 import time
 from decimal import Decimal, localcontext
 from langchain_core.tools import  tool
@@ -5,6 +6,8 @@ from langchain_openai import ChatOpenAI
 
 
 from study.langchain.base.工具tools_调用_从零实现智能体Agent import run_agent
+
+
 
 @tool
 def get_sales(city: str) -> float:

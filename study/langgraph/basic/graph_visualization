@@ -1,0 +1,12 @@
+// Graph Visualization
+digraph {
+	rankdir=LR
+	startNode [label=startNode]
+	storyNode [label=storyNode]
+	jokeNode [label=jokeNode]
+	assistantNode [label=assistantNode]
+	jokeNode -> __end__
+	storyNode -> __end__
+	__start__ -> startNode
+	startNode -> __end__
+}

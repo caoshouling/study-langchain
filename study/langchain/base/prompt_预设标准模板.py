@@ -1,4 +1,12 @@
 from langchain import hub
+'''
+这些提示词的仓库位于：https://smith.langchain.com/hub/
+
+
+'''
+
+
+
 print('-----------------openai-functions-agent----------------------')
 prompt = hub.pull("hwchase17/openai-functions-agent")
 print(prompt)

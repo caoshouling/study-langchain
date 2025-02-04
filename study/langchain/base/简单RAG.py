@@ -7,7 +7,11 @@ from langchain_openai import ChatOpenAI
 from typing import List, Union
 from langchain_core.documents import Document
 from study.langchain.base.document_loaders import DocumentLoaderFactory
-
+import os
+os.environ["LANGSMITH_API_KEY"] = "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"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGSMITH_PROJECT"] = "langsmith-basic"
+os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 def create_rag_chain(
     docs: Union[List[str], List[Document], str], 
     chunk_size: int = 500,

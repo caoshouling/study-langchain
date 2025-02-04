@@ -1,7 +1,7 @@
-import os
-from time import sleep
-from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 
+from time import sleep
+
+import os
 os.environ["LANGSMITH_API_KEY"] = "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"
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGSMITH_PROJECT"] = "langsmith-basic"

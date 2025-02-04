@@ -19,7 +19,12 @@ from langchain.globals import set_debug, set_verbose
 logging.basicConfig(level=logging.DEBUG)
 set_debug(True)
 set_verbose(True)
+import os
 
+os.environ["LANGSMITH_API_KEY"] = "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"
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGSMITH_PROJECT"] = "langsmith-basic"
+os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
 # 默认工具定义
 @tool
