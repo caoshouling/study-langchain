@@ -30,6 +30,6 @@ graph = builder.compile()
 print(graph.invoke([HumanMessage(content="你好")]))
 
 graph_png = graph.get_graph().draw_mermaid_png()
-with open("demo-MessageGraph.png", "wb") as f:
+with open(os.path.basename(__file__).replace("py","png"), "wb") as f:
     f.write(graph_png)
 # 显示图

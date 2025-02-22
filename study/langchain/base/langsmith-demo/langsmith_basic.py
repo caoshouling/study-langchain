@@ -7,6 +7,7 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGSMITH_PROJECT"] = "langsmith-basic"
 os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
+
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(

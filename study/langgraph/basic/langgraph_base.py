@@ -86,7 +86,7 @@ tool_node = ToolNode(tools)
 # 1.初始化模型和工具，定义并绑定工具到模型
 model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 model = ChatOpenAI(
-    openai_api_base="https://8f13-154-12-181-41.ngrok-free.app/v1/",
+    openai_api_base="http://localhost:1234/v1/",
     # model="paultimothymooney/qwen2.5-7b-instruct",
     model = "qwen2.5-14b-instruct",
     api_key="323"

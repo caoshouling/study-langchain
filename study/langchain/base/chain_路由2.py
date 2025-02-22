@@ -96,6 +96,13 @@ prompt_branch = RunnableBranch(
     (lambda x: x["topic"] == "physics", physics_prompt),
     general_prompt,
 )
+from langfuse.callback import CallbackHandler
+langfuse_handler = CallbackHandler(
+
+    host="http://localhost:3000",
+    public_key="pk-lf-be651ae0-b1c9-41ee-9fe6-0f6d05b1319a",
+    secret_key = "sk-lf-7bdae9b4-cf1e-47ab-9a0b-8336c67109c2",
+)
 full_chain = {
                  "topic": chain | print_and_return,
                  "input": lambda x: print_and_return2(x)  # 这个X实际上是下面invoke传入的参数
@@ -103,7 +110,7 @@ full_chain = {
 result2 = full_chain.invoke(
     {
         "question": "大于40的第一个质数，使得该质数加1后能被3整除的数是多少？"
-    }
+    },config={"callbacks": [langfuse_handler]}
 )
 
 print(result2)

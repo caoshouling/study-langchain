@@ -22,7 +22,7 @@ os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 llm = ChatOpenAI(
-    openai_api_base="https://8f13-154-12-181-41.ngrok-free.app/v1/",
+    openai_api_base="http://localhost:1234/v1/",
     # model="paultimothymooney/qwen2.5-7b-instruct",
     model = "qwen2.5-14b-instruct",
     api_key="323"
