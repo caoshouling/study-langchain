@@ -27,12 +27,14 @@ prompt = ChatPromptTemplate.from_messages(
 # )
 #  支持性好
 llm = ChatOpenAI(model_name="gpt-3.5-turbo")
-
+llm = ChatOpenAI(openai_api_base= "http://10.193.103.19:10001/model-service/v1",
+                   model_name='/data/webapps/Qwen2.5-14B-Instruct-GPTQ-Int8/',
+                 api_key ="sk-d9ca67dd361c4347b582386197867c05")
 
 #  支持性好
 # llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
-#                    model_name='qwen-turbo',
-#                  api_key ="sk-474e1a10893e4913bbe860dc90edda42")
+#                    model_name='qwen3-14b',
+#                  api_key ="sk-d9ca67dd361c4347b582386197867c05")
 
 
 @tool

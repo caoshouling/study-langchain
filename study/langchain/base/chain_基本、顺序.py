@@ -10,8 +10,7 @@ print('--------------------------基本使用-------------------------')
 prompt = ChatPromptTemplate.from_template("请根据下面的主题写一篇小红书营销的短文：{topic}")
 
 llm_base_url: str = "http://localhost:1234/v1/"
-llm_model: str = "paultimothymooney/qwen2.5-7b-instruct"
-llm_base_url="https://8f13-154-12-181-41.ngrok-free.app/v1/"
+llm_model: str = "deepseek-r1-distill-qwen-7b"
 
 # 初始化语言模型
 llm = ChatOpenAI(
@@ -25,6 +24,9 @@ llm = ChatOpenAI(
 chain = prompt|llm| StrOutputParser()
 answer = chain.invoke({"product","苹果"})
 print(answer)
+
+
+
 print('--------------------------顺序链（SequentialChain已过时，所以用LCEL）-------------------------')
 synopsis_prompt = PromptTemplate.from_template(
     """你是一位剧作家。给定一个剧目的标题，你的任务是为这个标题写一个剧情简介。

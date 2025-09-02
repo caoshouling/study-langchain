@@ -18,7 +18,7 @@ def create_rag_chain(
     chunk_overlap: int = 150,
     embedding_model_path: str = "E:\\workspace\\ai\\llm\\bge-large-zh-v1.5",
     llm_base_url: str = "http://localhost:1234/v1/",
-    llm_model: str = "paultimothymooney/qwen2.5-7b-instruct",
+    llm_model: str = "qwen3-8b",
     retriever_k: int = 2,
     show_retrieved_docs: bool = True
 ) -> object:

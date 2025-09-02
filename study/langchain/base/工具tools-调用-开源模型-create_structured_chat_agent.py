@@ -37,17 +37,16 @@ tools = [add,multiply,get_weather]
 print(get_weather.invoke("南京"))
 print("---------------------千问大模型--------------------------")
 # 定义提示词
-
-# llm = ChatOpenAI(openai_api_base="https://api.deepseek.com/v1",
-#                    model_name='deepseek-chat',
-#                  openai_api_key ="sk-37b28ddd69354f6e8f813de3a0f218f2")
+# qwen-turbo
+llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                   model_name='deepseek-v3',
+                 api_key ="sk-d9ca67dd361c4347b582386197867c05")
+llm = ChatOpenAI(openai_api_base= "http://10.193.103.19:10001/model-service/v1",
+                   model_name='/data/webapps/Qwen2.5-14B-Instruct-GPTQ-Int8/',
+                 api_key ="sk-d9ca67dd361c4347b582386197867c05")
 
 # llm_base_url: str = "http://localhost:1234/v1/"
 # 初始化语言模型
-llm = ChatOpenAI(
-    openai_api_base="https://8f13-154-12-181-41.ngrok-free.app/v1/",
-    model="paultimothymooney/qwen2.5-7b-instruct",
-    api_key ="323")
 prompt_muti_param = hub.pull("hwchase17/structured-chat-agent")
 agent= create_structured_chat_agent(
     llm=llm,
@@ -59,7 +58,7 @@ agent_executor =AgentExecutor(agent=agent, tools=tools,verbose=True)
 
 # 小明有120只鸭子，后面朋友送了他99只鸭子，他一共有多少只鸭子？
 # 今天南京的天气怎样？
-result = agent_executor.invoke({"input": "张三在哪所学校毕业的，学的什么专业? 小明有120只鸭子，后面朋友送了他99只鸭子，他一共有多少只鸭子？"})
+result = agent_executor.invoke({"input": "今天南京的天气怎样？ 小明有120只鸭子，后面朋友送了他99只鸭子，他一共有多少只鸭子？"})
 print(result)
 
 

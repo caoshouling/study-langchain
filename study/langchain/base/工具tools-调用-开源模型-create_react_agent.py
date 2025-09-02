@@ -54,14 +54,14 @@ llm = ChatOpenAI(
 
 
 #  支持性好
-# llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
-#                    model_name='qwen-turbo',
-#                  api_key ="sk-474e1a10893e4913bbe860dc90edda42")
+llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                   model_name='qwen-turbo',
+                 api_key ="sk-d9ca67dd361c4347b582386197867c05")
 
 #
-llm = ChatOpenAI(openai_api_base="https://api.deepseek.com/v1",
-                   model_name='deepseek-chat',
-                 api_key ="sk-37b28ddd69354f6e8f813de3a0f218f2")
+# llm = ChatOpenAI(openai_api_base="https://api.deepseek.com/v1",
+#                    model_name='deepseek-chat',
+#                  api_key ="sk-37b28ddd69354f6e8f813de3a0f218f2")
 
 import os
 

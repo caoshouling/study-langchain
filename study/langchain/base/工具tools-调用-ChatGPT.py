@@ -30,6 +30,9 @@ print("---------------------调用方式一:create_openai_functions_agent-------
 prompt=hub.pull("hwchase17/openai-functions-agent")
 
 llm =ChatOpenAI(model_name="gpt-3.5-turbo")
+llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                       model_name='qwen-turbo',
+                     api_key ="sk-d9ca67dd361c4347b582386197867c05")
 # 这个方法貌似只有ChatGPT支持，兼容OpenAI的开源模型不支持
 agent= create_openai_functions_agent(
     llm=llm,
@@ -47,7 +50,11 @@ print("---------------------调用方式二:create_openai_tools_agent-----------
 prompt = hub.pull("hwchase17/openai-tools-agent")
 
 llm =ChatOpenAI(model_name="gpt-3.5-turbo")
-# 这个方法貌似只有ChatGPT支持，兼容OpenAI的开源模型不支持
+llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                       model_name='qwen-turbo',
+                     api_key ="sk-d9ca67dd361c4347b582386197867c05")
+
+
 agent= create_openai_tools_agent(
     llm=llm,
     tools=tools,

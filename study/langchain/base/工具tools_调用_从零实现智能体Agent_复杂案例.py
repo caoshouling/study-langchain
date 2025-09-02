@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
                        model_name='qwen-turbo',
-                     api_key ="sk-474e1a10893e4913bbe860dc90edda42")
+                     api_key ="sk-d9ca67dd361c4347b582386197867c05")
     tools = [get_sales,get_cost,add_float,subtract_float,get_profit]
     result = run_agent( "南京地区的增长值是多少？",llm,tools)
     print(result)

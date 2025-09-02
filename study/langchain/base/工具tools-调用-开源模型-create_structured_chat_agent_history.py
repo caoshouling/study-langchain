@@ -29,16 +29,9 @@ print(get_weather.invoke("南京"))
 print("---------------------千问大模型--------------------------")
 
 
-# llm = ChatOpenAI(openai_api_base="https://api.deepseek.com/v1",
-#                    model_name='deepseek-chat',
-#                  openai_api_key ="sk-37b28ddd69354f6e8f813de3a0f218f2")
-
-# llm_base_url: str = "http://localhost:1234/v1/"
-# 初始化语言模型
-llm = ChatOpenAI(
-    openai_api_base="https://8f13-154-12-181-41.ngrok-free.app/v1/",
-    model="paultimothymooney/qwen2.5-7b-instruct",
-api_key ="323")
+llm = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                   model_name='deepseek-v3',
+                 api_key ="sk-d9ca67dd361c4347b582386197867c05")
 
 ## 提示词
 system = '''尽可能帮助和准确地回应人类。您可以使用以下工具:
