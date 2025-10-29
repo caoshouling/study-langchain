@@ -93,9 +93,9 @@ model = ChatOpenAI(
 
 )
 #
-# model = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
-#                    model_name='qwen-turbo',
-#                  api_key ="sk-474e1a10893e4913bbe860dc90edda42")
+model = ChatOpenAI(openai_api_base= "https://dashscope.aliyuncs.com/compatible-mode/v1",
+                   model_name='qwen-turbo',
+                 api_key =os.getenv('DASHSCOPE_API_KEY'))
 
 
 
